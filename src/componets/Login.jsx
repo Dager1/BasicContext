@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LoginContext } from "../context/LoginContext";
 
 function Login() {
-  const [name, setName] = useState("");
-
+  const { setName, setShowProfile } = useContext(LoginContext);
   return (
     <div>
       <form>
@@ -18,7 +18,12 @@ function Login() {
           <label>Password:</label>
           <input type="password" />
           <br />
-          <button>Click</button>
+          <button
+            onClick={() => {
+              setShowProfile(true);
+            }}>
+            Click
+          </button>
         </div>
       </form>
     </div>
